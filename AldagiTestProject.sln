@@ -9,13 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{1D1D8181-7DEB-4472-A30A-3AF7234EBFB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D9F3FED0-8B28-4439-A86D-9DDB49B4D947}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{D9F3FED0-8B28-4439-A86D-9DDB49B4D947}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{640B0D7E-5D4B-43B6-A014-F753F1493772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{640B0D7E-5D4B-43B6-A014-F753F1493772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{4E9373C9-1460-4D1D-B1E4-6AAFF599E3C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{4E9373C9-1460-4D1D-B1E4-6AAFF599E3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWasmWebApi", "BlazorWasmWebApi\BlazorWasmWebApi.csproj", "{6AB3395B-A853-409A-A031-D6052FA7C522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWasmWebApi", "BlazorWasmWebApi\BlazorWasmWebApi.csproj", "{6AB3395B-A853-409A-A031-D6052FA7C522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host1", "Host1", "{A6F4F995-F136-4352-B0A5-65F08A3EC8AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
