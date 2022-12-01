@@ -4,11 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.DB;
 
-public class ApplicationDBContext : DbContext, IApplicationDBContext
+public class ApplicationDbContext : DbContext, IApplicationDBContext
 {
-    public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) { }
+ 
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     public DbSet<AppSetting> AppSettings { get; set; }
+    public DbSet<Person> Persons { get; set; }
+    public DbSet<Country> Countries { get; set; }
+    public DbSet<Region> Regions { get; set; }
+
 
     public Task<int> SaveChangesAsync()
     {
