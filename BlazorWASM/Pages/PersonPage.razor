@@ -1,0 +1,58 @@
+@page "/person"
+@inject HttpClient Http
+
+<PageTitle>Person</PageTitle>
+
+<h1>Person</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (_persons == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Id Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var person in _persons)
+        {
+            <tr>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.DateOfBirth.ToShortDateString()</td>
+                <td>@person.IdNumber</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Person[]? _persons;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _persons = await Http.GetFromJsonAsync<Person[]>("sample-data/weather.json");
+        // _persons = await Http.GetAsync("")
+    }
+
+    public class Person
+    {
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string? IdNumber { get; set; }
+        // public string FirstName { get; set; }
+
+        
+    }
+}
