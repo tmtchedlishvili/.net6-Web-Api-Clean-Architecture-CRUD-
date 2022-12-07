@@ -6,5 +6,5 @@ public class Country : BaseEntity<int>
 {
     public string? Name { get; set; }
     public Region? Region { get; set; }
-    
+    public string? Code { get; set; }
 }

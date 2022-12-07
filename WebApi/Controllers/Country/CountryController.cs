@@ -23,10 +23,11 @@ public class CountryController : ApiControllerBase
     }
     
     [HttpGet("GetCountriesById{id:int}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<ActionResult<GetCountriesResponse>> GetPersonById(int id)
     {
-        var country = await _context.Countries.SingleAsync(p=> p.Id == id);
-        return Ok(country);
+        var result = await Mediator.Send(new GetCountryByIdQuery() {Id = id});
+
+        return Ok(result);
     }
     
     [HttpPost("PostCountry")]

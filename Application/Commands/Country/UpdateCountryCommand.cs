@@ -9,6 +9,7 @@ public class UpdateCountryCommand : IRequest
     public int Id { get; init; }
     public string? Name { get; init; }
     public int RegionId { get; init; }
+    public string? Code { get; init; }
     
 }
 
@@ -27,6 +28,7 @@ public class UpdateCountryCommandHandler : IRequestHandler<UpdateCountryCommand>
             await _context.Countries.SingleAsync(c=> c.Id == request.Id, cancellationToken: cancellationToken);
         countryToUpdate.Name = request.Name;
         countryToUpdate.Region = _context.Regions.Single(r => r.Id == request.RegionId);
+        countryToUpdate.Code = request.Code;
         
         await _context.SaveChangesAsync();
         return Unit.Value;

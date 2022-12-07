@@ -8,6 +8,7 @@ public class CreateCountryCommand : IRequest<int>
 {
     public string? Name { get; init; }
     public int RegionId { get; init; }
+    public string? Code { get; init; }
 }
 
 public class CreatePersonCommandHandler : IRequestHandler<CreateCountryCommand, int>
@@ -24,7 +25,8 @@ public class CreatePersonCommandHandler : IRequestHandler<CreateCountryCommand, 
         var country = new Domain.Entities.Main.Country
         {
             Name = request.Name,
-            Region = await _context.Regions.SingleAsync(r => r.Id == request.RegionId, cancellationToken: cancellationToken)
+            Region = await _context.Regions.SingleAsync(r => r.Id == request.RegionId, cancellationToken: cancellationToken),
+            Code = request.Code
         };
 
         _context.Countries.Add(country);
