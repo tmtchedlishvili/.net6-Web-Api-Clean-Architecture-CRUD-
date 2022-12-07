@@ -1,6 +1,4 @@
-using Application.Commands.Person.CreatePerson;
-using Application.Commands.Person.DeletePerson;
-using Application.Commands.Person.UpdatePerson;
+using Application.Commands.Person;
 using Application.Queries.Person;
 using Infrastructure.DB;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +34,7 @@ public class PersonController : ApiControllerBase
     public async Task<ActionResult<int>> Post(CreatePersonCommand command) => await Mediator.Send(command);
     
     
-    [HttpPut("{id}")]
+    [HttpPut("UpdatePerson{id}")]
     public async Task<ActionResult> Update(int id, UpdatePersonCommand command)
     {
         if (id != command.Id)
@@ -49,7 +47,7 @@ public class PersonController : ApiControllerBase
         return NoContent();
     }
     
-    [HttpDelete("{id}")]
+    [HttpDelete("DeletePerson{id}")]
     public async Task<ActionResult> Delete(int id)
     {
         await Mediator.Send(new DeletePersonCommand(id));

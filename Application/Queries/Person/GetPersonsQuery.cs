@@ -26,7 +26,6 @@ public class GetPersonsQueryHandler : IRequestHandler<GetPersonsQuery, GetPerson
         var persons = await _context.Persons
             .Include(p => p.Citizenship)
             .Include(p => p.Citizenship!.Region)
-            // .Include(p => p.DateOfBirth)
             .ToListAsync(cancellationToken: cancellationToken);
 
         var result = new GetPersonsResponse();

@@ -20,10 +20,4 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\Country\DeleteCountry" />
-    <Folder Include="Commands\Country\UpdateCountry" />
-    <Folder Include="Commands\Person" />
-  </ItemGroup>
-
 </Project>

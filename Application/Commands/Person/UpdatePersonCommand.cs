@@ -2,7 +2,7 @@ using Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Commands.Person.UpdatePerson;
+namespace Application.Commands.Person;
 
 public class UpdatePersonCommand : IRequest
 {

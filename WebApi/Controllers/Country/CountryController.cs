@@ -1,13 +1,11 @@
-using Application.Commands.Country.CreateCountry;
+using Application.Commands.Country;
 using Application.Queries.Country;
 using Infrastructure.DB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApi.Controllers.Country___Region;
+namespace WebApi.Controllers.Country;
 
-[Route("[controller]")]
-[ApiController]
 public class CountryController : ApiControllerBase
 {
     private readonly ApplicationDbContext _context;
@@ -17,21 +15,42 @@ public class CountryController : ApiControllerBase
         _context = context;
     }
 
-    [HttpGet]
+    [HttpGet("GetCountries")]
     public async Task<ActionResult<IEnumerable<GetCountriesResponse>>> GetCountries()
     {
         var result = await Mediator.Send(new GetCountriesQuery());
         return Ok(result);
     }
     
-    [HttpGet("{id}")]
+    [HttpGet("GetCountriesById{id:int}")]
     public async Task<IActionResult> GetById(int id)
     {
         var country = await _context.Countries.SingleAsync(p=> p.Id == id);
         return Ok(country);
     }
     
-    [HttpPost]
+    [HttpPost("PostCountry")]
     public async Task<ActionResult<int>> Post(CreateCountryCommand command) => await Mediator.Send(command);
+
+    
+    [HttpPut("UpdateCountry{id}")]
+    public async Task<ActionResult> Update(int id, UpdateCountryCommand command)
+    {
+        if (id != command.Id)
+        {
+            return BadRequest();
+        }
+
+        await Mediator.Send(command);
+
+        return NoContent();
+    }
+    
+    [HttpDelete("DeleteCountry{id}")]
+    public async Task<ActionResult> Delete(int id)
+    {
+        await Mediator.Send(new DeleteCountryCommand(id));
+        return NoContent();
+    }
 
 }

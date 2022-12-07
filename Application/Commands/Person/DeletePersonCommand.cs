@@ -1,7 +1,7 @@
 using Application.Common.Interfaces;
 using MediatR;
 
-namespace Application.Commands.Person.DeletePerson;
+namespace Application.Commands.Person;
 
 public record DeletePersonCommand(int Id) : IRequest;
 

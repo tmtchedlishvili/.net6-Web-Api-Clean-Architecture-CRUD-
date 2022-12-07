@@ -2,7 +2,7 @@ using Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace Application.Commands.Country.CreateCountry;
+namespace Application.Commands.Country;
 
 public class CreateCountryCommand : IRequest<int>
 {
@@ -24,7 +24,7 @@ public class CreatePersonCommandHandler : IRequestHandler<CreateCountryCommand, 
         var country = new Domain.Entities.Main.Country
         {
             Name = request.Name,
-            Region = await _context.Regions.SingleAsync(r => r.Id == request.RegionId)
+            Region = await _context.Regions.SingleAsync(r => r.Id == request.RegionId, cancellationToken: cancellationToken)
         };
 
         _context.Countries.Add(country);

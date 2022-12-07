@@ -1,7 +1,7 @@
 using Application.Common.Interfaces;
 using MediatR;
 
-namespace Application.Commands.Person.CreatePerson;
+namespace Application.Commands.Person;
 
 public class CreatePersonCommand : IRequest<int>
 {
