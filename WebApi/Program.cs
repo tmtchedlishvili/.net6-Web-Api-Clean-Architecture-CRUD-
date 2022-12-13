@@ -1,7 +1,8 @@
 using Application;
+using Application.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Infrastructure;
-using Infrastructure.DB;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
+// builder.Services.AddMvc()
+//     .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Program>());
+builder.Services.AddValidatorsFromAssemblyContaining<PersonRegisterRequestValidator>();
 
 var app = builder.Build();
 
