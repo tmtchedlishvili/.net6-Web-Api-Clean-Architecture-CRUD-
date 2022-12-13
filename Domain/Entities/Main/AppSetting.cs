@@ -2,7 +2,7 @@ using Domain.Entities.Common;
 
 namespace Domain.Entities.Main;
 
-public class AppSetting : BaseEntity<int>
+public class AppSetting : Entity
 {
     /// <summary>
     /// Gets or sets the ReferenceKey

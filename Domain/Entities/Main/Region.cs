@@ -2,7 +2,7 @@ using Domain.Entities.Common;
 
 namespace Domain.Entities.Main;
 
-public class Region : BaseEntity<int>
+public class Region : Entity
 {
     public string? Name { get; set; }
 }

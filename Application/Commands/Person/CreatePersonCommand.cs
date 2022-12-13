@@ -41,7 +41,6 @@ public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, i
             
         };
         
-        if (entity.Citizenship != null) entity.Citizenship.Id = request.CountryId;
         _context.Persons.Add(entity);
         await _context.SaveChangesAsync();
         return entity.Id;
