@@ -1,4 +1,5 @@
 using Application;
+using Application.Commands.Person;
 using Application.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -15,7 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
 // builder.Services.AddMvc()
 //     .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Program>());
-builder.Services.AddValidatorsFromAssemblyContaining<PersonRegisterRequestValidator>();
+// builder.Services.AddValidatorsFromAssemblyContaining<PersonRegisterRequestValidator>();
+builder.Services.AddTransient<IValidator<CreatePersonCommand>, PersonRegisterRequestValidator>();
 
 var app = builder.Build();
 
