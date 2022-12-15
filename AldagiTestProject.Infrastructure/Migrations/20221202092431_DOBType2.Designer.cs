@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221201074403_Region2")]
-    partial class Region2
+    [Migration("20221202092431_DOBType2")]
+    partial class DOBType2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Domain.Entities.Main.AppSetting", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.AppSetting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("AppSettings");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Country", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,7 +74,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Person", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -107,7 +107,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Region", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Region", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -123,18 +123,18 @@ namespace Infrastructure.Migrations
                     b.ToTable("Regions");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Country", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Country", b =>
                 {
-                    b.HasOne("Domain.Entities.Main.Region", "Region")
+                    b.HasOne("AldagiTestProject.Domain.Entities.Main.Region", "Region")
                         .WithMany()
                         .HasForeignKey("RegionId");
 
                     b.Navigation("Region");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Person", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Person", b =>
                 {
-                    b.HasOne("Domain.Entities.Main.Country", "Citizenship")
+                    b.HasOne("AldagiTestProject.Domain.Entities.Main.Country", "Citizenship")
                         .WithMany()
                         .HasForeignKey("CitizenshipId");
 

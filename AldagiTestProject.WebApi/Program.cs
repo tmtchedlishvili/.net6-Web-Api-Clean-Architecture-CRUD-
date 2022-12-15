@@ -14,9 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddPersistence(builder.Configuration);
-// builder.Services.AddMvc()
-//     .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Program>());
-// builder.Services.AddValidatorsFromAssemblyContaining<PersonRegisterRequestValidator>();
+builder.Services.AddFluentValidation();
 builder.Services.AddTransient<IValidator<CreatePersonCommand>, PersonRegisterRequestValidator>();
 
 var app = builder.Build();

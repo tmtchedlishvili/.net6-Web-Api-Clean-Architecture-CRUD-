@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221201073404_CountryRegion")]
-    partial class CountryRegion
+    [Migration("20221215071729_EmailPropertyHasBeenAdded")]
+    partial class EmailPropertyHasBeenAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Domain.Entities.Main.AppSetting", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.AppSetting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,7 +53,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("AppSettings");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Country", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,18 +61,23 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Region")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("RegionId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Country");
+                    b.HasIndex("RegionId");
+
+                    b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Person", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,6 +90,9 @@ namespace Infrastructure.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -105,9 +113,34 @@ namespace Infrastructure.Migrations
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Person", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Region", b =>
                 {
-                    b.HasOne("Domain.Entities.Main.Country", "Citizenship")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Regions");
+                });
+
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Country", b =>
+                {
+                    b.HasOne("AldagiTestProject.Domain.Entities.Main.Region", "Region")
+                        .WithMany()
+                        .HasForeignKey("RegionId");
+
+                    b.Navigation("Region");
+                });
+
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Person", b =>
+                {
+                    b.HasOne("AldagiTestProject.Domain.Entities.Main.Country", "Citizenship")
                         .WithMany()
                         .HasForeignKey("CitizenshipId");
 

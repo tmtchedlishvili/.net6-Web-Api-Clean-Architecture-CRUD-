@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221207074546_CodeProperty")]
-    partial class CodeProperty
+    [Migration("20221202092310_DOBType1")]
+    partial class DOBType1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Domain.Entities.Main.AppSetting", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.AppSetting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,16 +53,13 @@ namespace Infrastructure.Migrations
                     b.ToTable("AppSettings");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Country", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -77,7 +74,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Person", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Person", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,7 +82,7 @@ namespace Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CitizenshipId")
+                    b.Property<int?>("CitizenshipIdId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -105,12 +102,12 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CitizenshipId");
+                    b.HasIndex("CitizenshipIdId");
 
                     b.ToTable("Persons");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Region", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Region", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,22 +123,22 @@ namespace Infrastructure.Migrations
                     b.ToTable("Regions");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Country", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Country", b =>
                 {
-                    b.HasOne("Domain.Entities.Main.Region", "Region")
+                    b.HasOne("AldagiTestProject.Domain.Entities.Main.Region", "Region")
                         .WithMany()
                         .HasForeignKey("RegionId");
 
                     b.Navigation("Region");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Main.Person", b =>
+            modelBuilder.Entity("AldagiTestProject.Domain.Entities.Main.Person", b =>
                 {
-                    b.HasOne("Domain.Entities.Main.Country", "Citizenship")
+                    b.HasOne("AldagiTestProject.Domain.Entities.Main.Country", "CitizenshipId")
                         .WithMany()
-                        .HasForeignKey("CitizenshipId");
+                        .HasForeignKey("CitizenshipIdId");
 
-                    b.Navigation("Citizenship");
+                    b.Navigation("CitizenshipId");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,6 +12,7 @@ public class PersonDto : IMapFrom<Domain.Entities.Main.Person>
     public Domain.Entities.Main.Person.GenderEnum Gender { get; set; }
     public string? IdNumber { get; set; }
     public Domain.Entities.Main.Country? Citizenship { get; set; }
+    public string? Email { get; set; }
 
     public void Mapping(Profile profile)
     {
@@ -23,6 +24,7 @@ public class PersonDto : IMapFrom<Domain.Entities.Main.Person>
             .ForMember(dest => dest.Gender, opt => opt.MapFrom(src => src.Gender))
             .ForMember(dest => dest.IdNumber, opt => opt.MapFrom(src => src.IdNumber))
             .ForMember(dest => dest.Citizenship, opt => opt.MapFrom(src => src.Citizenship))
+            .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
             .ReverseMap();
     }
 }

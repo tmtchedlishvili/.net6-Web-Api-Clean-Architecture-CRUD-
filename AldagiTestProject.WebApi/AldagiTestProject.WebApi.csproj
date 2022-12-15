@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>11</LangVersion>
+    <RootNamespace>WebApi</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\Application.csproj" />
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\AldagiTestProject.Application\AldagiTestProject.Application.csproj" />
+    <ProjectReference Include="..\AldagiTestProject.Infrastructure\AldagiTestProject.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

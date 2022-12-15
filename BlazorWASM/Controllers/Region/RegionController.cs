@@ -1,8 +1,8 @@
-// using Application.Commands.Region;
-// using Application.Queries.Region;
+// using AldagiTestProject.Application.Commands.Region;
+// using AldagiTestProject.Application.Queries.Region;
 // using Microsoft.AspNetCore.Mvc;
 //
-// namespace WebApi.Controllers.Region;
+// namespace AldagiTestProject.WebApi.Controllers.Region;
 //
 // public class RegionController : ApiControllerBase
 // {

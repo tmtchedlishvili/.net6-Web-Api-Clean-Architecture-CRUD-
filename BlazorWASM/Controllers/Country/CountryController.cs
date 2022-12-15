@@ -1,10 +1,10 @@
-// using Application.Commands.Country;
-// using Application.Queries.Country;
-// using Infrastructure.DB;
+// using AldagiTestProject.Application.Commands.Country;
+// using AldagiTestProject.Application.Queries.Country;
+// using AldagiTestProject.Infrastructure.DB;
 // using Microsoft.AspNetCore.Mvc;
 // using Microsoft.EntityFrameworkCore;
 //
-// namespace WebApi.Controllers.Country;
+// namespace AldagiTestProject.WebApi.Controllers.Country;
 //
 // public class CountryController : ApiControllerBase
 // {

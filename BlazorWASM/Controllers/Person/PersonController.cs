@@ -1,9 +1,9 @@
-// using Application.Commands.Person;
-// using Application.Queries.Person;
-// using Infrastructure.DB;
+// using AldagiTestProject.Application.Commands.Person;
+// using AldagiTestProject.Application.Queries.Person;
+// using AldagiTestProject.Infrastructure.DB;
 // using Microsoft.AspNetCore.Mvc;
 //
-// namespace WebApi.Controllers.Person;
+// namespace AldagiTestProject.WebApi.Controllers.Person;
 //
 // public class PersonController : ApiControllerBase
 // {

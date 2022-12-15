@@ -1,7 +1,7 @@
 // using MediatR;
 // using Microsoft.AspNetCore.Mvc;
 //
-// namespace WebApi.Controllers;
+// namespace AldagiTestProject.WebApi.Controllers;
 //
 // [ApiController]
 // [Route("api/[controller]")]

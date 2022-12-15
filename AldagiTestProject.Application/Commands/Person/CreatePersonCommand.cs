@@ -11,6 +11,7 @@ public class CreatePersonCommand : IRequest<int>
     public DateTime DateOfBirth { get; init; }
     public int Gender { get; init; }
     public string? IdNumber { get; init; }
+    public string? Email { get; init; }
 }
 
 public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, int>
@@ -37,7 +38,8 @@ public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, i
                 _ => throw new ArgumentOutOfRangeException()
             },
             IdNumber = request.IdNumber,
-            DateOfBirth = request.DateOfBirth
+            DateOfBirth = request.DateOfBirth,
+            Email = request.Email
             
         };
         

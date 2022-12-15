@@ -13,6 +13,7 @@ public class Person : Entity
     public GenderEnum Gender { get; set; }
     public string? IdNumber { get; set; }
     public Country? Citizenship { get; set; }
+    public string? Email { get; set; }
 
     public int Age => GetAge();
 
@@ -25,8 +26,8 @@ public class Person : Entity
 
     public enum GenderEnum
     {
-        Female = 0,
-        Male = 1,
-        Other = 2
+        Female,
+        Male,
+        Other
     }
 }
