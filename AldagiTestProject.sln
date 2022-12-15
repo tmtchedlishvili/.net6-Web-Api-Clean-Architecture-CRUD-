@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AldagiTestProject.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AldagiTestProject.WebApi", "AldagiTestProject.WebApi\AldagiTestProject.WebApi.csproj", "{BB554712-4B7F-466A-8575-DC96E6FFE4FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AldagiTestProject.BlazorWasm", "AldagiTestProject.BlazorWasm\AldagiTestProject.BlazorWasm.csproj", "{3C6D326C-E8B9-47CB-9A9D-902C757CB469}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BB554712-4B7F-466A-8575-DC96E6FFE4FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB554712-4B7F-466A-8575-DC96E6FFE4FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB554712-4B7F-466A-8575-DC96E6FFE4FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{640B0D7E-5D4B-43B6-A014-F753F1493772} = {3C6B065B-051F-4E77-A10E-ABDE5238A65D}
 		{4E9373C9-1460-4D1D-B1E4-6AAFF599E3C0} = {20BB4363-37E4-4039-A837-017DCB79FD32}
 		{BB554712-4B7F-466A-8575-DC96E6FFE4FE} = {1D1D8181-7DEB-4472-A30A-3AF7234EBFB6}
+		{3C6D326C-E8B9-47CB-9A9D-902C757CB469} = {1D1D8181-7DEB-4472-A30A-3AF7234EBFB6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91A0876C-CFFB-4986-AEEF-E6199381A6F1}

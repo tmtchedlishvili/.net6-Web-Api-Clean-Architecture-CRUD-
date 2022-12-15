@@ -1,0 +1,26 @@
+@page "/persons"
+
+@using System.Linq
+@using Infrastructure.DB
+@inject HttpClient Client
+
+@inject ApplicationDbContext DbContext
+
+<h1>List of Persons</h1>
+
+<ul>
+    @foreach (var person in DbContext.Persons.ToList())
+    {
+        <li>@person.FirstName</li>
+    }
+</ul>
+
+@code {
+    Person[]? Persons { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Persons = await Client.GetFromJsonAsync<Person[]>("api/Person/GetPersons");
+    }
+
+}
