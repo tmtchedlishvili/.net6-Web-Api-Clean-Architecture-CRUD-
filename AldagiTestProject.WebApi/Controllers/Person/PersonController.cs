@@ -1,19 +1,13 @@
 using Application.Commands.Person;
+using Application.Common.Interfaces;
 using Application.Queries.Person;
-using Infrastructure.DB;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers.Person;
 
-public class PersonController : ApiControllerBase
+public class PersonController : ApiControllerBase, IPersonDataRepository
 {
-    private readonly ApplicationDbContext _context;
-
-    public PersonController(ApplicationDbContext context)
-    {
-        _context = context;
-    }
-    
+ 
     [HttpGet("GetPersons")]
     public async Task<ActionResult<IEnumerable<GetPersonsResponse>>> GetPersons()
     {
@@ -34,7 +28,7 @@ public class PersonController : ApiControllerBase
     public async Task<ActionResult<int>> Post(CreatePersonCommand command) => await Mediator.Send(command);
     
     
-    [HttpPut("UpdatePerson{id}")]
+    [HttpPut("UpdatePerson{id:int}")]
     public async Task<ActionResult> Update(int id, UpdatePersonCommand command)
     {
         if (id != command.Id)
@@ -47,7 +41,7 @@ public class PersonController : ApiControllerBase
         return NoContent();
     }
     
-    [HttpDelete("DeletePerson{id}")]
+    [HttpDelete("DeletePerson{id:int}")]
     public async Task<ActionResult> Delete(int id)
     {
         await Mediator.Send(new DeletePersonCommand(id));

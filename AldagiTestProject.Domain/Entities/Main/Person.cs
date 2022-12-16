@@ -16,6 +16,7 @@ public class Person : Entity
     public string? Email { get; set; }
 
     public int Age => GetAge();
+    public int JustNumber { get; set; }
 
     public int GetAge()
     {
@@ -23,7 +24,7 @@ public class Person : Entity
         var difference = dateTimeToday.Year - DateOfBirth.Year;
         return dateTimeToday.Date.Month > DateOfBirth.Month ? difference : difference - 1;
     }
-
+    
     public enum GenderEnum
     {
         Female,
