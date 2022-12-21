@@ -1,26 +1,77 @@
 @page "/persons"
+@using System.Data.Entity.Core.Metadata.Edm
+@using Domain.Entities.Main
+@inject HttpClient Http
 
-@using System.Linq
-@using Infrastructure.DB
-@inject HttpClient Client
+<PageTitle>Persons 👯</PageTitle>
 
-@inject ApplicationDbContext DbContext
+<h1>Persons</h1>
 
-<h1>List of Persons</h1>
+<p>You can register a person on this page.</p>
 
-<ul>
-    @foreach (var person in DbContext.Persons.ToList())
-    {
-        <li>@person.FirstName</li>
-    }
-</ul>
+@if (_persons == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Id Number</th>
+            <th>Citizenship</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var person in _persons)
+        {
+            <tr>
+                <td>@person.Id</td>
+                <td>@person.FirstName</td>
+                <td>@person.LastName</td>
+                <td>@person.DateOfBirth.ToShortDateString()</td>
+                <td>@person.Gender</td>
+                <td>@person.IdNumber</td>
+                <td>@person.Citizenship</td>
+                <td>@person.Email</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
 
 @code {
-    Person[]? Persons { get; set; }
+    private PersonPage[]? _persons;
 
     protected override async Task OnInitializedAsync()
     {
-        Persons = await Client.GetFromJsonAsync<Person[]>("api/Person/GetPersons");
+    // _persons = new PersonPage
+    // {
+    //     Id = 1, FirstName = "Tamar", LastName = "Mtchedlishvili", Gender = Domain.Entities.Main.Person.GenderEnum.Female, DateOfBirth =
+    //         new DateTime(1998, 7, 4),
+    //     IdNumber = "01027069337", Citizenship = new Country { Name = "", Code = "Geo", Region = new Region { Name = "Europe" } }, Email = "tmtchedlishvili@aldagi.ge"
+    // };
+        _persons = await Http.GetFromJsonAsync<PersonPage[]>("api/Person/GetPersons");
+    }
+
+    public class PersonPage
+    {
+        public int Id { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public Domain.Entities.Main.Person.GenderEnum Gender { get; set; }
+        public string? IdNumber { get; set; }
+        public Domain.Entities.Main.Country? Citizenship { get; set; }
+        public string? Email { get; set; }
     }
 
 }

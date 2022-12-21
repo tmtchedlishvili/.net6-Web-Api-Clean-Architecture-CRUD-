@@ -16,7 +16,6 @@ public class Person : Entity
     public string? Email { get; set; }
 
     public int Age => GetAge();
-    public int JustNumber { get; set; }
 
     public int GetAge()
     {
