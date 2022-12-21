@@ -23,4 +23,9 @@ public class ApplicationDbContext : DbContext, IApplicationDBContext
     {
         return base.SaveChangesAsync();
     }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
 }
