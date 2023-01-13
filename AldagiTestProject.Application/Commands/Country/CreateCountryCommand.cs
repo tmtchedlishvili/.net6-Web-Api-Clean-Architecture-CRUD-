@@ -22,12 +22,9 @@ public class CreatePersonCommandHandler : IRequestHandler<CreateCountryCommand, 
 
     public async Task<int> Handle(CreateCountryCommand request, CancellationToken cancellationToken)
     {
-        var country = new Domain.Entities.Main.Country
-        {
-            Name = request.Name,
-            Region = await _context.Regions.SingleAsync(r => r.Id == request.RegionId, cancellationToken: cancellationToken),
-            Code = request.Code
-        };
+        var region =
+            await _context.Regions.SingleAsync(r => r.Id == request.RegionId, cancellationToken: cancellationToken);
+        var country = new Domain.Entities.Main.Country(request.Name, region, request.Code);
 
         _context.Countries.Add(country);
         await _context.SaveChangesAsync();

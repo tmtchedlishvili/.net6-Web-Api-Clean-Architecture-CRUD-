@@ -20,10 +20,7 @@ public class CreatePersonCommandHandler : IRequestHandler<CreateRegionCommand, i
 
     public async Task<int> Handle(CreateRegionCommand request, CancellationToken cancellationToken)
     {
-        var region = new Domain.Entities.Main.Region
-        {
-            Name = request.Name
-        };
+        var region = new Domain.Entities.Main.Region(request.Name);
 
         _context.Regions.Add(region);
         await _context.SaveChangesAsync();

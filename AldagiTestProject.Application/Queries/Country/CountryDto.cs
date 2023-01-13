@@ -6,10 +6,10 @@ namespace Application.Queries.Country;
 
 public class CountryDto : IMapFrom<Domain.Entities.Main.Country>
 {
-    public int Id { get; set; }
-    public string? Name { get; set; }
-    public Domain.Entities.Main.Region? Region { get; set; }
-    public string? Code { get; set; }
+    public int Id { get; private set; }
+    public string? Name { get; private set; }
+    public Domain.Entities.Main.Region? Region { get; private set; }
+    public string? Code { get; private set; }
     
     public void Mapping(Profile profile)
     {

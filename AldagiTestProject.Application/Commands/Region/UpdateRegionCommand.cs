@@ -24,7 +24,7 @@ public class UpdateRegionCommandHandler : IRequestHandler<UpdateRegionCommand>
     {
         var regionToUpdate =
             await _context.Regions.SingleAsync(c=> c.Id == request.Id, cancellationToken: cancellationToken);
-        regionToUpdate.Name = request.Name;
+        // regionToUpdate.Name = request.Name;
         
         await _context.SaveChangesAsync();
         return Unit.Value;

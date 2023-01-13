@@ -26,9 +26,9 @@ public class UpdateCountryCommandHandler : IRequestHandler<UpdateCountryCommand>
     {
         var countryToUpdate =
             await _context.Countries.SingleAsync(c=> c.Id == request.Id, cancellationToken: cancellationToken);
-        countryToUpdate.Name = request.Name;
-        countryToUpdate.Region = _context.Regions.Single(r => r.Id == request.RegionId);
-        countryToUpdate.Code = request.Code;
+        // countryToUpdate.Name = request.Name;
+        // countryToUpdate.Region = _context.Regions.Single(r => r.Id == request.RegionId);
+        // countryToUpdate.Code = request.Code;
         
         await _context.SaveChangesAsync();
         return Unit.Value;

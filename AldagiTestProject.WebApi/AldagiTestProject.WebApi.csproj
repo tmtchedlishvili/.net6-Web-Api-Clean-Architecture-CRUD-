@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AldagiTestProject.Application\AldagiTestProject.Application.csproj" />
     <ProjectReference Include="..\AldagiTestProject.Infrastructure\AldagiTestProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\Infrastructure\RabbitMQ.Infrastructure\RabbitMQ.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

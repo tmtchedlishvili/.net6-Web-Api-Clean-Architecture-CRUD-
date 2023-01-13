@@ -4,6 +4,7 @@ using Application.Validators;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Infrastructure;
+using RabbitMQ.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,5 +32,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Send.SendMessage();
 
 app.Run();

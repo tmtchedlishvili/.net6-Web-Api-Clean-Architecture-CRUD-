@@ -5,8 +5,8 @@ namespace Application.Queries.Region;
 
 public class RegionDto : IMapFrom<Domain.Entities.Main.Region>
 {
-    public int Id { get; set; }
-    public string? Name { get; set; }
+    public int Id { get; private set; }
+    public string? Name { get; private set; }
 
     public void Mapping(Profile profile)
     {

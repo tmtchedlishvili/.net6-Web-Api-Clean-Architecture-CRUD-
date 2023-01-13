@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AldagiTestProject.WebApi", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AldagiTestProject.BlazorWasm", "AldagiTestProject.BlazorWasm\AldagiTestProject.BlazorWasm.csproj", "{3C6D326C-E8B9-47CB-9A9D-902C757CB469}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ.Infrastructure", "Infrastructure\RabbitMQ.Infrastructure\RabbitMQ.Infrastructure.csproj", "{32721C34-0846-439C-9605-4389120516B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C6D326C-E8B9-47CB-9A9D-902C757CB469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32721C34-0846-439C-9605-4389120516B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32721C34-0846-439C-9605-4389120516B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32721C34-0846-439C-9605-4389120516B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32721C34-0846-439C-9605-4389120516B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{4E9373C9-1460-4D1D-B1E4-6AAFF599E3C0} = {20BB4363-37E4-4039-A837-017DCB79FD32}
 		{BB554712-4B7F-466A-8575-DC96E6FFE4FE} = {1D1D8181-7DEB-4472-A30A-3AF7234EBFB6}
 		{3C6D326C-E8B9-47CB-9A9D-902C757CB469} = {1D1D8181-7DEB-4472-A30A-3AF7234EBFB6}
+		{32721C34-0846-439C-9605-4389120516B3} = {20BB4363-37E4-4039-A837-017DCB79FD32}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {91A0876C-CFFB-4986-AEEF-E6199381A6F1}

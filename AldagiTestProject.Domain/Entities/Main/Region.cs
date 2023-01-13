@@ -4,5 +4,14 @@ namespace Domain.Entities.Main;
 
 public class Region : Entity
 {
-    public string? Name { get; set; }
+    public Region()
+    {
+        
+    }
+    public Region(string? name)
+    {
+        Name = name;
+    }
+
+    public string? Name { get; private set; }
 }
